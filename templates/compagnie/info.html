@@ -1,0 +1,49 @@
+{% extends 'dashboard/tour/index.html' %}{% load static %}{% load django_bootstrap5 %}
+{% block texte %}
+{% endblock %}
+{% block image %}
+<style>
+    img.img-thumbnail.avatar {
+        max-width: 5em;
+        max-height: 5em;
+        object-fit: scale-down;
+        object-position: center center;
+    }
+</style>
+    <div class="container-fluid">
+        <h3 class="fw-bolder text-center"> Information Compagnie</h3>
+         <h5 class="fw-bolder text-center"> Compagnie Identifiant: {{ compagnies.id}}</h5>
+        <center>
+            <hr class="bg-primary opacity-100" style="height:3px" width="5%">
+        </center>
+
+        {% for vol in vols %}
+                             {% for company in vol.compagnie.all %}
+                                {% if  company.nom == compagnies.nom  %}
+            <div class="card mb-3">
+  <div class="card-header">
+   <h3>Vol {{vol.id}}</h3>
+  </div>
+  <div class="card-body col-sm-6">
+    <ul>
+        <li>Nom Compagnie: <strong> {{ company.nom }}</strong></li>
+         <li>Date du Vol:   <strong>{{ vol.date }}</strong></li>
+         <li>Heure du vol:   <strong>{{ vol.heure }}</strong></li>
+         <li>Prix :   <strong>{{ vol.prix }}</strong> </li>
+         <li>Ville de depart:  <strong> {{ vol.trajet.depart }}</strong></li>
+         <li>Ville D'arrivée:  <strong> {{ vol.trajet.arrive }}</strong></li>
+    </ul>
+  </div>
+
+                {% endif %}
+                              {% endfor %}
+                               {% endfor %}
+
+</div>
+
+
+    </div>
+
+{% endblock %}
+{% block content %}
+{% endblock %}

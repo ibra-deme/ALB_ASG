@@ -1,0 +1,81 @@
+{% extends 'dashboard/tour/index.html' %}{% load static %}
+{% block texte %}
+{% endblock %}
+{% block image %}
+<style>
+     .al-logo {
+        height: 3em;
+        width: 3em;
+        object-fit: scale-down;
+        object-position: center center;
+    }
+</style>
+
+
+    <div class="container">
+        <h3 class="fw-bolder text-center text-primary">Liste des Compagnies</h3>
+        <center>
+            <hr class="bg-primary opacity-100" style="height:3px" width="15%">
+        </center>
+       <div class="row">
+         <div class="col-lg-4 col-md-12 mb-4">
+
+          <div class="card "style="width: 18rem; height: 15rem;">
+
+            <div class="bg-image hover-overlay ripple text-center" data-mdb-ripple-color="light">
+                <h4 class="card-title">{{compagnies.0.nom}}</h4>
+              <img src="{{compagnies.0.logo.url}}"style="width:120px;height:198px" class="img-fluid"/>
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+            <div class="card-body  text-center">
+
+              <a href="{% url 'information' compagnies.0.id %}" class="btn btn-success m-1">Voir Plus</a>
+              <a href="{% url 'modifier_compagnie' compagnies.0.id %}" class="btn btn-primary">Update</a>
+            </div>
+          </div>
+
+         </div>
+         <div  class="col-lg-4 col-md-6 mb-4">
+
+          <div class="card"style="width: 18rem; height: 15rem;">
+
+            <div class="bg-image hover-overlay ripple text-center" data-mdb-ripple-color="light">
+                <h4 class="card-title">{{compagnies.2.nom}}</h4>
+              <img src="{{compagnies.2.logo.url}}"style="width:120px;height:198px" class="img-fluid"/>
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+            <div class="card-body text-center">
+
+              <a href="{% url 'information' compagnies.2.id %}" class="btn btn-success m-1">Voir Plus</a>
+              <a href="{% url 'modifier_compagnie' compagnies.2.id %}" class="btn btn-primary">Update</a>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4 ">
+
+          <div class="card" style="width: 18rem; height: 15rem;">
+            <div class="bg-image hover-overlay ripple text-center" data-mdb-ripple-color="light">
+               <h4 class="card-title">{{compagnies.1.nom}}</h4>
+              <img src="{{compagnies.1.logo.url}}"style="width:120px;height:198px"class="img-fluid"/>
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+            <div class="card-body text-center">
+
+              <a href="{% url 'information' compagnies.1.id %}" class="btn btn-success m-1">Voir Plus</a>
+              <a href="{% url 'modifier_compagnie' compagnies.1.id %}" class="btn btn-primary">Update</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+{% endblock %}

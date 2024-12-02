@@ -1,0 +1,45 @@
+{% extends 'dashboard/tour/index.html' %}
+{% block texte %}
+{% endblock %}
+{% block image %}
+
+    <div class="container">
+        <h3 class="fw-bolder text-center">Liste des trajets</h3>
+        <center>
+            <hr class="bg-primary opacity-100" style="height:3px" width="5%">
+        </center>
+        <div class="card rounded-0 shadow">
+            <div class="card-body">
+                <div class="container-fluid">
+                    <table class="table table-bordered table-striped" id="airline-tbl">
+                        <colgroup>
+                            <col width="10%">
+                            <col width="30%">
+                            <col width="30%">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th class="text-center">id</th>
+                                <th class="text-center">Depart</th>
+                                <th class="text-center">Arrivée</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for trajet in trajets %}
+                            <tr>
+                                <td class="text-center">{{ trajet.id }}</td>
+                                <td class="text-center">{{ trajet.depart }}</td>
+                                <td class="text-center">{{ trajet.arrive }}</td>
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block content %}
+{% endblock %}

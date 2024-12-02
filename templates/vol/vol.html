@@ -1,0 +1,45 @@
+{% extends 'dashboard/tour/index.html' %}{% load static %}{% load django_bootstrap5 %}
+{% block texte %}
+{% endblock %}
+{% block image %}
+<style>
+    img.img-thumbnail.avatar {
+        max-width: 5em;
+        max-height: 5em;
+        object-fit: scale-down;
+        object-position: center center;
+
+    }
+    .card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+}
+</style>
+ <div class="container">
+        <h3 class="fw-bolder text-center"> Liste des Vols</h3>
+        <center>
+            <hr class="bg-primary opacity-100" style="height:3px" width="5%">
+        </center>
+      <div class="row">
+           {% for vol in vols %}
+         <div class="col-lg-6  col-md-12 mb-3">
+
+        <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">VOL NUMERO {{vol.id}}</h5>
+        <ul>
+              <li>Depart : <strong>{{vol.trajet.depart}}</strong></li>
+              <li>Arrivée : <strong>{{vol.trajet.arrive}}</strong></li>
+              <li>Prix : <strong>{{vol.prix}}</strong></li>
+          </ul>
+    <a href="{% url 'info-vol' vol.id %}" class="btn btn-success m-1">Voir Plus</a>
+    <a href="#" class="btn btn-danger">Supprimer</a>
+  </div>
+</div>
+         </div>
+      {% endfor %}
+       </div>
+{% endblock %}
+{% block content %}
+{% endblock %}
